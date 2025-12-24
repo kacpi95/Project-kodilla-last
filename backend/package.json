@@ -9,11 +9,12 @@
   "author": "",
   "license": "ISC",
   "description": "",
-  "devDependencies": {
-    "prisma": "^7.2.0"
-  },
   "dependencies": {
     "@prisma/client": "^7.2.0",
-    "uuid": "^13.0.0"
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.3",
+    "prisma": "^7.2.0"
   }
 }
