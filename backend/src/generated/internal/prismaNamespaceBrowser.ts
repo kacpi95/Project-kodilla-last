@@ -85,7 +85,7 @@ export type ProductScalarFieldEnum = (typeof ProductScalarFieldEnum)[keyof typeo
 
 export const OrderScalarFieldEnum = {
   id: 'id',
-  customName: 'customName',
+  customerName: 'customerName',
   email: 'email',
   address: 'address',
   createdAt: 'createdAt'
@@ -126,7 +126,7 @@ export type ProductOrderByRelevanceFieldEnum = (typeof ProductOrderByRelevanceFi
 
 export const OrderOrderByRelevanceFieldEnum = {
   id: 'id',
-  customName: 'customName',
+  customerName: 'customerName',
   email: 'email',
   address: 'address'
 } as const

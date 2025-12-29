@@ -1,13 +1,13 @@
 export class CreateOrderItemDto {
-	productId: number;
-	quantity: number;
+	productId!: number;
+	quantity!: number;
 	note?: string;
-	price: number;
+	price!: number;
 }
 
 export class CreateOrderDto {
-	customerName: string;
-	email: string;
-	address: string;
-	items: CreateOrderItemDto[];
+	customerName!: string;
+	email!: string;
+	address!: string;
+	items!: CreateOrderItemDto[];
 }

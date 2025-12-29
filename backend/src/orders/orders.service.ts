@@ -1,28 +1,68 @@
+import { PrismaService } from "./../services/prisma.service";
 import { Injectable } from "@nestjs/common";
-import { PrismaService } from "../services/prisma.service";
-import { CreateOrderDto } from "./dto/create-order.dto";
 
 @Injectable()
 export class OrdersService {
 	constructor(private prisma: PrismaService) {}
 
-	async create(data: CreateOrderDto) {
+	async create(data: {
+		customName: string;
+		email: string;
+		address: string;
+		items: {
+			productId: string;
+			quantity: number;
+			price: number;
+			note?: string;
+		}[];
+	}) {
 		return this.prisma.order.create({
 			data: {
-				customName: data.customerName,
+				customerName: data.customName,
 				email: data.email,
 				address: data.address,
-				order_items: {
+				items: {
 					create: data.items.map((item) => ({
-						quanity: item.quantity,
-						note: item.note,
+						quantity: item.quantity,
 						price: item.price,
-						product_id: item.productId,
+						note: item.note,
+						product: {
+							connect: { id: item.productId },
+						},
 					})),
 				},
 			},
 			include: {
-				order_items: true,
+				items: {
+					include: {
+						product: true,
+					},
+				},
+			},
+		});
+	}
+
+	async findAll() {
+		return this.prisma.order.findMany({
+			include: {
+				items: {
+					include: {
+						product: true,
+					},
+				},
+			},
+		});
+	}
+
+	async findOne(id: string) {
+		return this.prisma.order.findUnique({
+			where: { id },
+			include: {
+				items: {
+					include: {
+						product: true,
+					},
+				},
 			},
 		});
 	}

@@ -25,7 +25,7 @@ model Product {
 
 model Order {
   id String @id @default(uuid())
-  customName String
+  customerName String
   email String
   address String
   createdAt DateTime @default(now())

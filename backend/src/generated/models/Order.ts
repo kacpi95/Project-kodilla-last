@@ -26,7 +26,7 @@ export type AggregateOrder = {
 
 export type OrderMinAggregateOutputType = {
   id: string | null
-  customName: string | null
+  customerName: string | null
   email: string | null
   address: string | null
   createdAt: Date | null
@@ -34,7 +34,7 @@ export type OrderMinAggregateOutputType = {
 
 export type OrderMaxAggregateOutputType = {
   id: string | null
-  customName: string | null
+  customerName: string | null
   email: string | null
   address: string | null
   createdAt: Date | null
@@ -42,7 +42,7 @@ export type OrderMaxAggregateOutputType = {
 
 export type OrderCountAggregateOutputType = {
   id: number
-  customName: number
+  customerName: number
   email: number
   address: number
   createdAt: number
@@ -52,7 +52,7 @@ export type OrderCountAggregateOutputType = {
 
 export type OrderMinAggregateInputType = {
   id?: true
-  customName?: true
+  customerName?: true
   email?: true
   address?: true
   createdAt?: true
@@ -60,7 +60,7 @@ export type OrderMinAggregateInputType = {
 
 export type OrderMaxAggregateInputType = {
   id?: true
-  customName?: true
+  customerName?: true
   email?: true
   address?: true
   createdAt?: true
@@ -68,7 +68,7 @@ export type OrderMaxAggregateInputType = {
 
 export type OrderCountAggregateInputType = {
   id?: true
-  customName?: true
+  customerName?: true
   email?: true
   address?: true
   createdAt?: true
@@ -149,7 +149,7 @@ export type OrderGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
 
 export type OrderGroupByOutputType = {
   id: string
-  customName: string
+  customerName: string
   email: string
   address: string
   createdAt: Date
@@ -178,7 +178,7 @@ export type OrderWhereInput = {
   OR?: Prisma.OrderWhereInput[]
   NOT?: Prisma.OrderWhereInput | Prisma.OrderWhereInput[]
   id?: Prisma.StringFilter<"Order"> | string
-  customName?: Prisma.StringFilter<"Order"> | string
+  customerName?: Prisma.StringFilter<"Order"> | string
   email?: Prisma.StringFilter<"Order"> | string
   address?: Prisma.StringFilter<"Order"> | string
   createdAt?: Prisma.DateTimeFilter<"Order"> | Date | string
@@ -187,7 +187,7 @@ export type OrderWhereInput = {
 
 export type OrderOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  customName?: Prisma.SortOrder
+  customerName?: Prisma.SortOrder
   email?: Prisma.SortOrder
   address?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -200,7 +200,7 @@ export type OrderWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.OrderWhereInput | Prisma.OrderWhereInput[]
   OR?: Prisma.OrderWhereInput[]
   NOT?: Prisma.OrderWhereInput | Prisma.OrderWhereInput[]
-  customName?: Prisma.StringFilter<"Order"> | string
+  customerName?: Prisma.StringFilter<"Order"> | string
   email?: Prisma.StringFilter<"Order"> | string
   address?: Prisma.StringFilter<"Order"> | string
   createdAt?: Prisma.DateTimeFilter<"Order"> | Date | string
@@ -209,7 +209,7 @@ export type OrderWhereUniqueInput = Prisma.AtLeast<{
 
 export type OrderOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  customName?: Prisma.SortOrder
+  customerName?: Prisma.SortOrder
   email?: Prisma.SortOrder
   address?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -223,7 +223,7 @@ export type OrderScalarWhereWithAggregatesInput = {
   OR?: Prisma.OrderScalarWhereWithAggregatesInput[]
   NOT?: Prisma.OrderScalarWhereWithAggregatesInput | Prisma.OrderScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Order"> | string
-  customName?: Prisma.StringWithAggregatesFilter<"Order"> | string
+  customerName?: Prisma.StringWithAggregatesFilter<"Order"> | string
   email?: Prisma.StringWithAggregatesFilter<"Order"> | string
   address?: Prisma.StringWithAggregatesFilter<"Order"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Order"> | Date | string
@@ -231,7 +231,7 @@ export type OrderScalarWhereWithAggregatesInput = {
 
 export type OrderCreateInput = {
   id?: string
-  customName: string
+  customerName: string
   email: string
   address: string
   createdAt?: Date | string
@@ -240,7 +240,7 @@ export type OrderCreateInput = {
 
 export type OrderUncheckedCreateInput = {
   id?: string
-  customName: string
+  customerName: string
   email: string
   address: string
   createdAt?: Date | string
@@ -249,7 +249,7 @@ export type OrderUncheckedCreateInput = {
 
 export type OrderUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  customName?: Prisma.StringFieldUpdateOperationsInput | string
+  customerName?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -258,7 +258,7 @@ export type OrderUpdateInput = {
 
 export type OrderUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  customName?: Prisma.StringFieldUpdateOperationsInput | string
+  customerName?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -267,7 +267,7 @@ export type OrderUncheckedUpdateInput = {
 
 export type OrderCreateManyInput = {
   id?: string
-  customName: string
+  customerName: string
   email: string
   address: string
   createdAt?: Date | string
@@ -275,7 +275,7 @@ export type OrderCreateManyInput = {
 
 export type OrderUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  customName?: Prisma.StringFieldUpdateOperationsInput | string
+  customerName?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -283,7 +283,7 @@ export type OrderUpdateManyMutationInput = {
 
 export type OrderUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  customName?: Prisma.StringFieldUpdateOperationsInput | string
+  customerName?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -297,7 +297,7 @@ export type OrderOrderByRelevanceInput = {
 
 export type OrderCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  customName?: Prisma.SortOrder
+  customerName?: Prisma.SortOrder
   email?: Prisma.SortOrder
   address?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -305,7 +305,7 @@ export type OrderCountOrderByAggregateInput = {
 
 export type OrderMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  customName?: Prisma.SortOrder
+  customerName?: Prisma.SortOrder
   email?: Prisma.SortOrder
   address?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -313,7 +313,7 @@ export type OrderMaxOrderByAggregateInput = {
 
 export type OrderMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  customName?: Prisma.SortOrder
+  customerName?: Prisma.SortOrder
   email?: Prisma.SortOrder
   address?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -344,7 +344,7 @@ export type OrderUpdateOneRequiredWithoutItemsNestedInput = {
 
 export type OrderCreateWithoutItemsInput = {
   id?: string
-  customName: string
+  customerName: string
   email: string
   address: string
   createdAt?: Date | string
@@ -352,7 +352,7 @@ export type OrderCreateWithoutItemsInput = {
 
 export type OrderUncheckedCreateWithoutItemsInput = {
   id?: string
-  customName: string
+  customerName: string
   email: string
   address: string
   createdAt?: Date | string
@@ -376,7 +376,7 @@ export type OrderUpdateToOneWithWhereWithoutItemsInput = {
 
 export type OrderUpdateWithoutItemsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  customName?: Prisma.StringFieldUpdateOperationsInput | string
+  customerName?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -384,7 +384,7 @@ export type OrderUpdateWithoutItemsInput = {
 
 export type OrderUncheckedUpdateWithoutItemsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  customName?: Prisma.StringFieldUpdateOperationsInput | string
+  customerName?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -423,7 +423,7 @@ export type OrderCountOutputTypeCountItemsArgs<ExtArgs extends runtime.Types.Ext
 
 export type OrderSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  customName?: boolean
+  customerName?: boolean
   email?: boolean
   address?: boolean
   createdAt?: boolean
@@ -435,13 +435,13 @@ export type OrderSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
 
 export type OrderSelectScalar = {
   id?: boolean
-  customName?: boolean
+  customerName?: boolean
   email?: boolean
   address?: boolean
   createdAt?: boolean
 }
 
-export type OrderOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "customName" | "email" | "address" | "createdAt", ExtArgs["result"]["order"]>
+export type OrderOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "customerName" | "email" | "address" | "createdAt", ExtArgs["result"]["order"]>
 export type OrderInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   items?: boolean | Prisma.Order$itemsArgs<ExtArgs>
   _count?: boolean | Prisma.OrderCountOutputTypeDefaultArgs<ExtArgs>
@@ -454,7 +454,7 @@ export type $OrderPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
-    customName: string
+    customerName: string
     email: string
     address: string
     createdAt: Date
@@ -829,7 +829,7 @@ export interface Prisma__OrderClient<T, Null = never, ExtArgs extends runtime.Ty
  */
 export interface OrderFieldRefs {
   readonly id: Prisma.FieldRef<"Order", 'String'>
-  readonly customName: Prisma.FieldRef<"Order", 'String'>
+  readonly customerName: Prisma.FieldRef<"Order", 'String'>
   readonly email: Prisma.FieldRef<"Order", 'String'>
   readonly address: Prisma.FieldRef<"Order", 'String'>
   readonly createdAt: Prisma.FieldRef<"Order", 'DateTime'>
