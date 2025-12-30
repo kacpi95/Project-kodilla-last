@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "build": "nest build"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +14,7 @@
   "dependencies": {
     "@nestjs/common": "^11.1.10",
     "@nestjs/core": "^11.1.10",
+    "@nestjs/platform-express": "^11.1.11",
     "@prisma/client": "^7.2.0",
     "uuid": "^9.0.0"
   },

@@ -5,9 +5,8 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client"
-  output   = "../src/generated"
-
+  provider = "prisma-client-js"
+   url      = env("DATABASE_URL")
 }
 
 datasource db {
@@ -15,32 +14,32 @@ datasource db {
 }
 
 model Product {
-  id String @id @default(uuid())
-  title String 
+  id          String      @id @default(uuid())
+  title       String
   description String
-  price Decimal
-  image String
-  orderItems OrderItem[]
+  price       Decimal
+  image       String
+  orderItems  OrderItem[]
 }
 
 model Order {
-  id String @id @default(uuid())
+  id           String      @id @default(uuid())
   customerName String
-  email String
-  address String
-  createdAt DateTime @default(now())
-  items OrderItem[]
+  email        String
+  address      String
+  createdAt    DateTime    @default(now())
+  items        OrderItem[]
 }
 
 model OrderItem {
-  id String @id @default(uuid())
-  quantity Int
-  note String?
-  price Decimal
+  id        String   @id @default(uuid())
+  quantity  Int
+  note      String?
+  price     Decimal
 
-  order Order @relation(fields: [orderId], references: [id])
-  orderId String
+  order     Order   @relation(fields: [orderId], references: [id])
+  orderId   String
 
-  product Product @relation(fields: [productId], references: [id])
+  product   Product @relation(fields: [productId], references: [id])
   productId String
 }
