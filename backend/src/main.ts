@@ -1,10 +1,16 @@
-import { NestFactory } from "@nestjs/core";
-import { AppModule } from "./app.module";
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+import { ValidationPipe } from '@nestjs/common';
+import { LoggerInterceptor } from './shared/logger.interceptor';
 
 async function bootstrap() {
-	const app = await NestFactory.create(AppModule);
-	app.enableCors();
-	await app.listen(8000);
-	console.log("🚀 Backend running on http://localhost:8000");
+  const app = await NestFactory.create(AppModule);
+  app.useGlobalPipes(new ValidationPipe({ transform: true }));
+  app.useGlobalInterceptors(new LoggerInterceptor());
+  app.setGlobalPrefix('api');
+
+  await app.enableShutdownHooks();
+
+  await app.listen(8000);
 }
 bootstrap();
