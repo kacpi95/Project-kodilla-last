@@ -40,9 +40,6 @@ export class ProductsController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    if (!this.productsService.findOne(id))
-      throw new NotFoundException('Product not found');
-    this.productsService.remove(id);
-    return { success: true };
+    return this.productsService.remove(id);
   }
 }
