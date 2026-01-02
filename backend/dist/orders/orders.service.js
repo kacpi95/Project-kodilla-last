@@ -19,7 +19,7 @@ let OrdersService = class OrdersService {
     async create(data) {
         return this.prisma.order.create({
             data: {
-                customerName: data.customName,
+                customerName: data.customerName,
                 email: data.email,
                 address: data.address,
                 items: {

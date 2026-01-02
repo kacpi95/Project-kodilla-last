@@ -6,7 +6,7 @@ export class OrdersService {
 	constructor(private prisma: PrismaService) {}
 
 	async create(data: {
-		customName: string;
+		customerName: string;
 		email: string;
 		address: string;
 		items: {
@@ -18,7 +18,7 @@ export class OrdersService {
 	}) {
 		return this.prisma.order.create({
 			data: {
-				customerName: data.customName,
+				customerName: data.customerName,
 				email: data.email,
 				address: data.address,
 				items: {
