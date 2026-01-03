@@ -16,6 +16,8 @@ model Product {
   description String
   price       Decimal
   image       String
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
   orderItems  OrderItem[]
 }
 
@@ -24,7 +26,9 @@ model Order {
   customerName String
   email        String
   address      String
+  status       String      @default("NEW")
   createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
   items        OrderItem[]
 }
 
