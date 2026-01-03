@@ -65,6 +65,12 @@ let OrdersService = class OrdersService {
             },
         });
     }
+    async updateStatus(id, status) {
+        return this.prisma.order.update({ where: { id }, data: { status } });
+    }
+    async remove(id) {
+        return this.prisma.order.delete({ where: { id } });
+    }
 };
 exports.OrdersService = OrdersService;
 exports.OrdersService = OrdersService = __decorate([

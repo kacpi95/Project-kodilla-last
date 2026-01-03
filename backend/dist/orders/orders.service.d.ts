@@ -1,4 +1,4 @@
-import { PrismaService } from "./../services/prisma.service";
+import { PrismaService } from './../services/prisma.service';
 export declare class OrdersService {
     private prisma;
     constructor(prisma: PrismaService);
@@ -20,6 +20,8 @@ export declare class OrdersService {
                 description: string;
                 price: import("@prisma/client/runtime").Decimal;
                 image: string;
+                createdAt: Date;
+                updatedAt: Date;
             }, unknown> & {};
         } & import("@prisma/client/runtime").GetResult<{
             id: string;
@@ -34,7 +36,9 @@ export declare class OrdersService {
         customerName: string;
         email: string;
         address: string;
+        status: string;
         createdAt: Date;
+        updatedAt: Date;
     }, unknown> & {}>;
     findAll(): Promise<({
         items: ({
@@ -44,6 +48,8 @@ export declare class OrdersService {
                 description: string;
                 price: import("@prisma/client/runtime").Decimal;
                 image: string;
+                createdAt: Date;
+                updatedAt: Date;
             }, unknown> & {};
         } & import("@prisma/client/runtime").GetResult<{
             id: string;
@@ -58,7 +64,9 @@ export declare class OrdersService {
         customerName: string;
         email: string;
         address: string;
+        status: string;
         createdAt: Date;
+        updatedAt: Date;
     }, unknown> & {})[]>;
     findOne(id: string): Promise<{
         items: ({
@@ -68,6 +76,8 @@ export declare class OrdersService {
                 description: string;
                 price: import("@prisma/client/runtime").Decimal;
                 image: string;
+                createdAt: Date;
+                updatedAt: Date;
             }, unknown> & {};
         } & import("@prisma/client/runtime").GetResult<{
             id: string;
@@ -82,6 +92,26 @@ export declare class OrdersService {
         customerName: string;
         email: string;
         address: string;
+        status: string;
         createdAt: Date;
+        updatedAt: Date;
+    }, unknown> & {}>;
+    updateStatus(id: string, status: string): Promise<import("@prisma/client/runtime").GetResult<{
+        id: string;
+        customerName: string;
+        email: string;
+        address: string;
+        status: string;
+        createdAt: Date;
+        updatedAt: Date;
+    }, unknown> & {}>;
+    remove(id: string): Promise<import("@prisma/client/runtime").GetResult<{
+        id: string;
+        customerName: string;
+        email: string;
+        address: string;
+        status: string;
+        createdAt: Date;
+        updatedAt: Date;
     }, unknown> & {}>;
 }
