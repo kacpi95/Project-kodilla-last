@@ -1,13 +1,36 @@
+import {
+  IsArray,
+  IsEmail,
+  IsNumber,
+  IsString,
+  ValidateNested,
+} from 'class-validator';
+
 export class CreateOrderItemDto {
-	productId!: number;
-	quantity!: number;
-	note?: string;
-	price!: number;
+  @IsString()
+  productId!: number;
+
+  @IsString()
+  quantity!: number;
+
+  @IsString()
+  note?: string;
+
+  @IsNumber()
+  price!: number;
 }
 
 export class CreateOrderDto {
-	customerName!: string;
-	email!: string;
-	address!: string;
-	items!: CreateOrderItemDto[];
+  @IsString()
+  customerName!: string;
+
+  @IsEmail()
+  email!: string;
+
+  @IsString()
+  address!: string;
+
+  @IsArray()
+  @ValidateNested({ each: true })
+  items!: CreateOrderItemDto[];
 }
