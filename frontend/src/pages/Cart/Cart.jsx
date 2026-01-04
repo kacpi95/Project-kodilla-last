@@ -7,6 +7,7 @@ import {
   clearCart,
 } from '../../app/cartSlice';
 import { api } from '../../api/axios';
+import styles from './Cart.module.scss';
 
 export default function Cart() {
   const dispatch = useDispatch();
@@ -49,13 +50,14 @@ export default function Cart() {
     }
   };
 
-  if (cart.length === 0) return <p>Twój koszyk jest pusty.</p>;
+  if (cart.length === 0)
+    return <p className={styles.empty}>Twój koszyk jest pusty.</p>;
 
   return (
-    <div>
+    <div className={styles.cartContainer}>
       <h1>Koszyk</h1>
       {cart.map((item) => (
-        <div key={item.productId}>
+        <div key={item.productId} className={styles.cartItem}>
           <h3>{item.title}</h3>
           <p>Cena: {item.price} zł</p>
           <input
@@ -87,33 +89,33 @@ export default function Cart() {
         </div>
       ))}
 
-      <h2>Podsumowanie:</h2>
-      <p>
+      <div className={styles.summary}>
         Łączna kwota: {cart.reduce((acc, i) => acc + i.price * i.quantity, 0)}{' '}
         zł
-      </p>
+      </div>
 
-      <h2>Dane kontaktowe:</h2>
-      <input
-        name='customerName'
-        placeholder='Imię i nazwisko'
-        value={client.customerName}
-        onChange={handleChange}
-      />
-      <input
-        name='email'
-        placeholder='Email'
-        value={client.email}
-        onChange={handleChange}
-      />
-      <input
-        name='address'
-        placeholder='Adres'
-        value={client.address}
-        onChange={handleChange}
-      />
-
-      <button onClick={handleOrder}>Złóż zamówienie</button>
+      <div className={styles.contactForm}>
+        <h2>Dane kontaktowe:</h2>
+        <input
+          name='customerName'
+          placeholder='Imię i nazwisko'
+          value={client.customerName}
+          onChange={handleChange}
+        />
+        <input
+          name='email'
+          placeholder='Email'
+          value={client.email}
+          onChange={handleChange}
+        />
+        <input
+          name='address'
+          placeholder='Adres'
+          value={client.address}
+          onChange={handleChange}
+        />
+        <button onClick={handleOrder}>Złóż zamówienie</button>
+      </div>
     </div>
   );
 }
