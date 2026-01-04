@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { api } from '../../api/axios';
 import { addToCart } from '../../app/cartSlice';
+import styles from './ProductDetails.module.scss';
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -19,8 +20,8 @@ export default function ProductDetails() {
     });
   }, [id]);
 
-  if (loading) return <p>Ładowanie...</p>;
-  if (!product) return <p>Nie znaleziono produktu</p>;
+  if (loading) return <p className={styles.loading}>Ładowanie...</p>;
+  if (!product) return <p className={styles.error}>Nie znaleziono produktu</p>;
 
   const handleAdd = () => {
     dispatch(
@@ -34,7 +35,7 @@ export default function ProductDetails() {
   };
 
   return (
-    <div>
+    <div className={styles.productDetailsContainer}>
       <h1>{product.title}</h1>
 
       <img src={product.image} alt={product.title} />
@@ -42,7 +43,7 @@ export default function ProductDetails() {
       <p>{product.description}</p>
       <strong>{product.price} zł</strong>
 
-      <div>
+      <div className={styles.productActions}>
         <input
           type='number'
           min={1}
