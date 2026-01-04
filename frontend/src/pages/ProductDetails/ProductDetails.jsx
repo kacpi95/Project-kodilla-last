@@ -1,6 +1,7 @@
 import { useDispatch, useParams } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { api } from '../../api/axios';
+import { addToCart } from '../../app/cartSlice';
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -31,5 +32,24 @@ export default function ProductDetails() {
     );
   };
 
-  return;
+  return (
+    <div>
+      <h1>{product.title}</h1>
+
+      <img src={product.image} alt={product.title} />
+
+      <p>{product.description}</p>
+      <strong>{product.price} zł</strong>
+
+      <div>
+        <input
+          type='number'
+          min={1}
+          value={quantity}
+          onChange={(e) => setQuantity(Number(e.target.value))}
+        />
+        <button onClick={handleAdd}>Dodaj do koszyka</button>
+      </div>
+    </div>
+  );
 }
