@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../../app/productsSlice';
 import { addToCart } from '../../app/cartSlice';
 import { Link } from 'react-router-dom';
+import styles from '../Home/Home.module.scss';
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -12,8 +13,8 @@ export default function Home() {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-  if (loading) return <p>Ładowanie...</p>;
-  if (error) return <p>Błąd: {error}</p>;
+  if (loading) return <p className={styles.loading}>Ładowanie...</p>;
+  if (error) return <p className={styles.error}>Błąd: {error}</p>;
 
   const handleAdd = (product) => {
     dispatch(
@@ -27,11 +28,11 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div className={styles.homeContainer}>
       <h1>Produkty</h1>
-      <div>
+      <div className={styles.productsGrid}>
         {items.map((product) => (
-          <div key={product.id}>
+          <div key={product.id} className={styles.productCard}>
             <Link to={`/product/${product.id}`}>
               <img src={product.image} alt={product.title} />
             </Link>
