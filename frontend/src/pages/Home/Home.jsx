@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../../app/productsSlice';
 import { addToCart } from '../../app/cartSlice';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -31,7 +32,9 @@ export default function Home() {
       <div>
         {items.map((product) => (
           <div key={product.id}>
-            <img src={product.image} alt={product.title} />
+            <Link to={`/product/${product.id}`}>
+              <img src={product.image} alt={product.title} />
+            </Link>
             <h3>{product.title}</h3>
             <p>{product.description}</p>
             <strong>{product.price} zł</strong>

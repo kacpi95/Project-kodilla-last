@@ -1,4 +1,5 @@
-import { useDispatch, useParams } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { api } from '../../api/axios';
 import { addToCart } from '../../app/cartSlice';
