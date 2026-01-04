@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { clearCart } from '../../app/cartSlice';
+import {
+  removeFromCart,
+  updateQuantity,
+  updateNote,
+  clearCart,
+} from '../../app/cartSlice';
 import { api } from '../../api/axios';
 
 export default function Cart() {
@@ -45,5 +50,70 @@ export default function Cart() {
   };
 
   if (cart.length === 0) return <p>Twój koszyk jest pusty.</p>;
-  return;
+
+  return (
+    <div>
+      <h1>Koszyk</h1>
+      {cart.map((item) => (
+        <div key={item.productId}>
+          <h3>{item.title}</h3>
+          <p>Cena: {item.price} zł</p>
+          <input
+            type='number'
+            value={item.quantity}
+            min={1}
+            onChange={(e) =>
+              dispatch(
+                updateQuantity({
+                  productId: item.productId,
+                  quantity: Number(e.target.value),
+                })
+              )
+            }
+          />
+          <input
+            type='text'
+            placeholder='Notatka'
+            value={item.note || ''}
+            onChange={(e) =>
+              dispatch(
+                updateNote({ productId: item.productId, note: e.target.value })
+              )
+            }
+          />
+          <button onClick={() => dispatch(removeFromCart(item.productId))}>
+            Usuń
+          </button>
+        </div>
+      ))}
+
+      <h2>Podsumowanie:</h2>
+      <p>
+        Łączna kwota: {cart.reduce((acc, i) => acc + i.price * i.quantity, 0)}{' '}
+        zł
+      </p>
+
+      <h2>Dane kontaktowe:</h2>
+      <input
+        name='customerName'
+        placeholder='Imię i nazwisko'
+        value={client.customerName}
+        onChange={handleChange}
+      />
+      <input
+        name='email'
+        placeholder='Email'
+        value={client.email}
+        onChange={handleChange}
+      />
+      <input
+        name='address'
+        placeholder='Adres'
+        value={client.address}
+        onChange={handleChange}
+      />
+
+      <button onClick={handleOrder}>Złóż zamówienie</button>
+    </div>
+  );
 }
