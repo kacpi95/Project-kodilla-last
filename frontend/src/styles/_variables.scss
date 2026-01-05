@@ -1,0 +1,32 @@
+$bg: #0b0f17;
+$surface: #0f1624;
+$surface2: #121c2e;
+$border: rgba(255, 255, 255, 0.08);
+
+$text: rgba(255, 255, 255, 0.92);
+$muted: rgba(255, 255, 255, 0.65);
+$faint: rgba(255, 255, 255, 0.45);
+
+$primary: #7c5cff;
+$primary2: #22c55e;
+$danger: #ef4444;
+
+$shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+
+$radius-lg: 18px;
+$radius-md: 14px;
+$radius-sm: 12px;
+
+$maxWidth: 1200px;
+
+@mixin container {
+  width: 100%;
+  max-width: $maxWidth;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@mixin focusRing {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba($primary, 0.25);
+}
