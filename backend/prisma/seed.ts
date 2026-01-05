@@ -5,6 +5,7 @@ const prisma = new PrismaClient();
 async function main() {
   await prisma.orderItem.deleteMany();
   await prisma.order.deleteMany();
+  await prisma.productImage.deleteMany();
   await prisma.product.deleteMany();
   await prisma.product.createMany({
     data: [
@@ -118,6 +119,33 @@ async function main() {
       },
     ],
   });
+
+  const tshirt = await prisma.product.findFirst({
+    where: { title: 'T-shirt' },
+  });
+
+  if (tshirt) {
+    await prisma.productImage.createMany({
+      data: [
+        {
+          url: 'https://cdn.pixabay.com/photo/2021/02/26/15/52/man-6052253_1280.jpg',
+          productId: tshirt.id,
+        },
+        {
+          url: 'https://cdn.pixabay.com/photo/2021/02/26/15/52/man-6052254_1280.jpg',
+          productId: tshirt.id,
+        },
+        {
+          url: 'https://cdn.pixabay.com/photo/2025/05/20/10/57/t-shirt-9611374_1280.jpg',
+          productId: tshirt.id,
+        },
+        {
+          url: 'https://cdn.pixabay.com/photo/2017/01/13/04/56/t-shirt-1976334_1280.png',
+          productId: tshirt.id,
+        },
+      ],
+    });
+  }
 }
 
 main()
