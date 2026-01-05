@@ -1,0 +1,16 @@
+@use '../../../styles/variables' as *;
+
+.input {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid $border;
+  background: $border;
+  color: $text;
+  padding: 12px 14px;
+  transition: border-color 160ms ease, background 160ms ease;
+
+  &:focus {
+    @include focusRing;
+    border-color: rgba($primary, 0.5);
+  }
+}
