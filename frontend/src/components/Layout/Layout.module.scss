@@ -1,0 +1,22 @@
+@use '../../styles/variables' as *;
+
+.cover {
+  min-height: 100vh;
+  background: radial-gradient(
+      1200px 600px at 15% 0%,
+      rgba($primary, 0.18),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 500px at 85% 10%,
+      rgba($primary2, 0.14),
+      transparent 55%
+    ),
+    $bg;
+  color: $text;
+}
+
+.main {
+  @include container;
+  padding: 26px 16px 48px;
+}
