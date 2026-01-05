@@ -37,12 +37,28 @@ export default function ProductDetails() {
   return (
     <div className={styles.productDetailsContainer}>
       <h1>{product.title}</h1>
-
-      <img src={product.image} alt={product.title} />
-
+      <img
+        className={styles.mainImage}
+        src={product.image}
+        alt={product.title}
+      />
+      {product.images && product.images.length > 0 && (
+        <div className={styles.gallery}>
+          {product.images.map((img) => (
+            <img
+              key={img.id}
+              src={img.url}
+              alt={product.title}
+              className={styles.galleryImage}
+            />
+          ))}
+        </div>
+      )}
       <p>{product.description}</p>
+      {product.detailedDescription && (
+        <p className={styles.detailed}>{product.detailedDescription}</p>
+      )}
       <strong>{product.price} zł</strong>
-
       <div className={styles.productActions}>
         <input
           type='number'
