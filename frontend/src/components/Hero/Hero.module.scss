@@ -1,0 +1,53 @@
+@use '../../styles/variables' as *;
+
+.hero {
+  padding: 18px;
+  border-radius: $radius-lg;
+  border: 1px solid $border;
+  overflow: hidden;
+}
+
+.pill {
+  display: inline-flex;
+  padding: 8px 10px;
+  border-radius: $radius-lg;
+  border: 1px solid $primary;
+  color: $muted;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.title {
+  margin: 14px 0 8px;
+  font-size: 44px;
+  line-height: 1;
+  letter-spacing: -0.5px;
+
+  span {
+    background: linear-gradient(
+      135deg,
+      rgba($primary, 0.95),
+      rgba($primary2, 0.8)
+    );
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+.subtitle {
+  color: $muted;
+  line-height: 1.6;
+}
+
+.linkReset {
+  text-decoration: none;
+}
+
+@media (max-width: 860px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .title {
+    font-size: 36px;
+  }
+}

@@ -4,6 +4,7 @@ import { fetchProducts } from '../../app/productsSlice';
 import { addToCart } from '../../app/cartSlice';
 import { Link } from 'react-router-dom';
 import styles from '../Home/Home.module.scss';
+import Hero from '../../components/Hero/Hero';
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -29,6 +30,7 @@ export default function Home() {
 
   return (
     <div className={styles.homeContainer}>
+      <Hero />
       <h1>Produkty</h1>
       <div className={styles.productsGrid}>
         {items.map((product) => (
