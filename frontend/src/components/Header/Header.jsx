@@ -1,8 +1,17 @@
 import { Link, NavLink } from 'react-router-dom';
+import { useMemo } from 'react';
+import { useSelector } from 'react-redux';
 import Input from '../common/Input/Input';
+import Badge from '../common/Badge/Badge';
 import styles from './Header.module.scss';
 
 export default function Header() {
+  const cartItems = useSelector((state) => state.cart?.items || []);
+  const count = useMemo(
+    () => cartItems.reduce((sum, it) => sum + (it.quantity || 0), 0),
+    [cartItems]
+  );
+
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
@@ -33,6 +42,7 @@ export default function Header() {
             }
           >
             Bag
+            {count > 0 && <Badge className={styles.badge}>{count}</Badge>}
           </NavLink>
         </nav>
       </div>
