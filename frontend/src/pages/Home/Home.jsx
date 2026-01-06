@@ -5,6 +5,7 @@ import { addToCart } from '../../app/cartSlice';
 import { Link } from 'react-router-dom';
 import styles from '../Home/Home.module.scss';
 import Hero from '../../components/Hero/Hero';
+import ProductCard from '../../components/ProductCard/ProductCard';
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -34,15 +35,7 @@ export default function Home() {
       <h1>Produkty</h1>
       <div className={styles.productsGrid}>
         {items.map((product) => (
-          <div key={product.id} className={styles.productCard}>
-            <Link to={`/product/${product.id}`}>
-              <img src={product.image} alt={product.title} />
-            </Link>
-            <h3>{product.title}</h3>
-            <p>{product.description}</p>
-            <strong>{product.price} zł</strong>
-            <button onClick={() => handleAdd(product)}>Dodaj do koszyka</button>
-          </div>
+          <ProductCard key={product.id} product={product} onAdd={handleAdd} />
         ))}
       </div>
     </div>
