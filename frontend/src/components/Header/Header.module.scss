@@ -1,0 +1,75 @@
+@use '../../styles/variables' as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba($bg, 0.7);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid $border;
+}
+
+.inner {
+  @include container;
+  display: grid;
+  grid-template-columns: 220px 1fr auto;
+  gap: 14px;
+  padding: 14px 16px;
+  align-items: center;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: $text;
+}
+
+.name {
+  font-weight: 750;
+  letter-spacing: 0.2px;
+}
+
+.search {
+  display: flex;
+}
+
+.nav {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.link,
+.active {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: $muted;
+  border: 1px solid transparent;
+}
+
+.link:hover {
+  color: $text;
+  border-color: $border;
+}
+
+.active {
+  color: $text;
+  background: rgba($primary, 0.1);
+  border-color: rgba($primary, 0.35);
+}
+
+@media (max-width: 860px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+  .nav {
+    justify-content: space-between;
+  }
+}
