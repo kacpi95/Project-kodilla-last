@@ -1,3 +1,5 @@
+@use '../../styles/variables' as *;
+
 .homeContainer {
   max-width: 1200px;
   margin: 0 auto;
@@ -12,44 +14,12 @@
   margin-top: 20px;
 }
 
-.productCard {
-  flex-direction: column;
-  display: flex;
-  padding: 15px;
-  gap: 10px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  background-color: #f5f5f5;
-  transition: box-shadow 0.2s;
-}
-
-.productCard img {
-  width: 100%;
-  border-radius: 5px;
-  object-fit: cover;
-}
-
-.productCard button {
-  padding: 8px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  color: white;
-  background-color: #4caf50;
-}
-
-.productCard button:hover {
-  background-color: #45a049;
-}
-
 .loading {
-  text-align: center;
-  font-size: 18px;
-  color: #555;
+  color: $muted;
+  padding: 16px 0;
 }
 
 .error {
-  text-align: center;
-  font-size: 18px;
-  color: #e53935;
+  color: rgba($danger, 0.95);
+  padding: 16px 0;
 }

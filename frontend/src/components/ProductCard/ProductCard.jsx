@@ -24,7 +24,7 @@ export default function ProductCard({ product, onAdd }) {
             <span className={styles.vat}>brutto</span>
           </div>
 
-          <Button onClick={() => onAdd(product)}>Dodaj</Button>
+          <Button onClick={() => onAdd(product)}>Add</Button>
         </div>
       </div>
     </article>
