@@ -8,10 +8,6 @@ function App() {
   return (
     <BrowserRouter>
       <Layout>
-        <nav>
-          <Link to='/'>Home</Link>
-          <Link to='/cart'>Cart</Link>
-        </nav>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/cart' element={<Cart />} />
