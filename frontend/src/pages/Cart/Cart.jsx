@@ -81,7 +81,8 @@ export default function Cart() {
               <div className={styles.itemMain}>
                 <div className={styles.itemTitle}>{item.title}</div>
                 <div className={styles.itemPrice}>
-                  {item.price} zł <span className={styles.muted}>/ szt.</span>
+                  {Number(item.price).toFixed(2)} zł{' '}
+                  <span className={styles.muted}>/ szt.</span>
                 </div>
               </div>
               <div className={styles.controls}>
@@ -123,12 +124,18 @@ export default function Cart() {
 
               <div className={styles.lineTotal}>
                 Subtotal:{' '}
-                <strong>{Number(item.price) * Number(item.quantity)} zł</strong>
+                <strong>
+                  {(Number(item.price) * Number(item.quantity)).toFixed(2)} zł
+                </strong>
               </div>
             </div>
           ))}
           <div className={styles.summary}>
-            Total: {cart.reduce((acc, i) => acc + i.price * i.quantity, 0)} zł
+            Total:{' '}
+            {cart
+              .reduce((acc, i) => acc + Number(i.price) * Number(i.quantity), 0)
+              .toFixed(2)}{' '}
+            zł
           </div>
         </section>
 
@@ -138,7 +145,7 @@ export default function Cart() {
 
             <div className={styles.sumRow}>
               <span>Cart value</span>
-              <strong>{total} zł</strong>
+              <strong>{Number(total).toFixed(2)} zł</strong>
             </div>
 
             <div className={styles.divider} />

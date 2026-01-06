@@ -20,7 +20,9 @@ export default function ProductCard({ product, onAdd }) {
 
         <div className={styles.bottom}>
           <div className={styles.priceWrap}>
-            <span className={styles.price}>{product.price} zł</span>
+            <span className={styles.price}>
+              {Number(product.price).toFixed(2)} zł
+            </span>
             <span className={styles.vat}>brutto</span>
           </div>
 
