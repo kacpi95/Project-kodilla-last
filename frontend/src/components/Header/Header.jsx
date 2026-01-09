@@ -44,6 +44,15 @@ export default function Header() {
             Bag
             {count > 0 && <Badge className={styles.badge}>{count}</Badge>}
           </NavLink>
+          <NavLink
+            to='/about'
+            className={({ isActive }) =>
+              isActive ? styles.active : styles.link
+            }
+            end
+          >
+            About
+          </NavLink>
         </nav>
       </div>
     </header>
