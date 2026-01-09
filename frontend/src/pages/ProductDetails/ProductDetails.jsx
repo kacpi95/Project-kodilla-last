@@ -95,7 +95,8 @@ export default function ProductDetails() {
             <h1 className={styles.title}>{product.title}</h1>
             <div className={styles.priceRow}>
               <div className={styles.price}>
-                {product.price} <span className={styles.currency}>zł</span>
+                {Number(product.price).toFixed(2)}
+                <span className={styles.currency}>zł</span>
               </div>
               <div className={styles.meta}>brutto</div>
             </div>

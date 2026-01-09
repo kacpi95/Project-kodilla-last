@@ -27,8 +27,7 @@ export default function About() {
             <li>React + React Router</li>
             <li>Redux</li>
             <li>SCSS Modules</li>
-            <li>MongoDB</li>
-            <li>Node</li>
+            <li>MySQL</li>
           </ul>
         </div>
 
