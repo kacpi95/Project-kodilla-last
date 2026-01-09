@@ -7,6 +7,7 @@ import { join } from 'path';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  const PORT = process.env.PORT || 8000;
 
   app.useGlobalPipes(new ValidationPipe({ transform: true }));
   app.useGlobalInterceptors(new LoggerInterceptor());
@@ -29,8 +30,8 @@ async function bootstrap() {
   });
 
   await app.enableShutdownHooks();
-  await app.listen(8000);
+  await app.listen(PORT);
 
-  console.log('🚀 Server running on http://localhost:8000');
+  console.log(`Server running on port ${PORT}`);
 }
 bootstrap();

@@ -8,6 +8,7 @@ const express = require("express");
 const path_1 = require("path");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
+    const PORT = process.env.PORT || 8000;
     app.useGlobalPipes(new common_1.ValidationPipe({ transform: true }));
     app.useGlobalInterceptors(new logger_interceptor_1.LoggerInterceptor());
     app.setGlobalPrefix('api');
@@ -25,8 +26,8 @@ async function bootstrap() {
         res.sendFile((0, path_1.join)(clientPath, 'index.html'));
     });
     await app.enableShutdownHooks();
-    await app.listen(8000);
-    console.log('🚀 Server running on http://localhost:8000');
+    await app.listen(PORT);
+    console.log(`Server running on port ${PORT}`);
 }
 bootstrap();
 //# sourceMappingURL=main.js.map
