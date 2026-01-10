@@ -24,7 +24,7 @@ Projekt jest prostym sklepem internetowym typu e-commerce, którego celem jest u
 
   npm install
 
-  # lub
+  #### lub
 
   yarn install
 
@@ -42,7 +42,7 @@ Projekt jest prostym sklepem internetowym typu e-commerce, którego celem jest u
   yarn install
   yarn build
 
-  # lub
+  #### lub
 
   npm install
   npm build
@@ -52,7 +52,7 @@ Projekt jest prostym sklepem internetowym typu e-commerce, którego celem jest u
   cd ../backend
   yarn start
 
-  # lub
+  #### lub
 
   npm start
 
